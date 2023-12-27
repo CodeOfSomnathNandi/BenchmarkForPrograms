@@ -1,3 +1,8 @@
+use crate::runtime_calculator::RuntimeBound;
+
+mod runtime_calculator;
+
 fn main() {
-    println!("Hello, world!");
+    let mut program = RuntimeBound::new("cmd.exe");
+    program.execute();
 }
