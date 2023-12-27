@@ -16,11 +16,9 @@ impl RuntimeBound {
     }
 
     pub fn execute(&mut self) {
-        let mut cmd = Command::new(self.program_name.clone())
-            .spawn()
-            .unwrap();
+        let mut cmd = Command::new(self.program_name.clone());
         let start = Instant::now();
-        cmd.wait().unwrap();
+        cmd.spawn().unwrap().wait().unwrap();
         let end = Instant::now();
         println!("{} secs", (end-start).as_secs_f64());
     }
